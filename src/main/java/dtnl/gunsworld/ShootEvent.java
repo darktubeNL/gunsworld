@@ -13,6 +13,7 @@ public class ShootEvent implements Listener {
     @EventHandler
     public void test(WeaponShootEvent e){
         try{
+            Bukkit.broadcast("test","ikben.staf");
             if (Bukkit.getPluginManager().getPlugin("LightAPI") != null) {
                 Location loc = e.getShooter().getLocation();
                 LightAPI.get().setLightLevel(loc.getWorld().getName(), loc.getBlockX(), loc.getBlockY(), loc.getBlockZ(), 15);

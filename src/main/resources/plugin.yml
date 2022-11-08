@@ -1,0 +1,9 @@
+name: Gunsworld
+version: '${project.version}'
+main: dtnl.gunsworld.main
+api-version: 1.19
+depend:
+  - MechanicsCore
+  - WeaponMechanics
+  - ProtocolLib
+  - LightAPI

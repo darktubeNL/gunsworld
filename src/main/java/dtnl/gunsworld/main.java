@@ -17,6 +17,8 @@ public final class main extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new ShootEvent(), this);
         plugin = this;
+
+        //equip code voor crossbow
         new FakeEquipment((Plugin)this) {
             protected boolean onEquipmentSending(FakeEquipment.EquipmentSendingEvent equipmentEvent) {
                 if ((equipmentEvent.getSlot() == EnumWrappers.ItemSlot.MAINHAND) &&

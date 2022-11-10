@@ -140,8 +140,7 @@ public abstract class FakeEquipment {
                                         data.add(new Pair(EnumWrappers.ItemSlot.LEGS , sendingEvent.getVisibleEntity().getEquipment().getLeggings()));
                                         data.add(new Pair(EnumWrappers.ItemSlot.CHEST , sendingEvent.getVisibleEntity().getEquipment().getChestplate()));
                                         data.add(new Pair(EnumWrappers.ItemSlot.HEAD , sendingEvent.getVisibleEntity().getEquipment().getHelmet()));
-                                        if (main)
-                                            packet.getSlotStackPairLists().write(0, data);
+                                        packet.getSlotStackPairLists().write(0, data);
                                     }
                                 }
                             }

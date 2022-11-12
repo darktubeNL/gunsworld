@@ -1,4 +1,4 @@
-package dtnl.gunsworld;
+package dtnl.gunsworld.events;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;

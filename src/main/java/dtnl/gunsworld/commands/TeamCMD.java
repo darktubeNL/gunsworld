@@ -11,18 +11,31 @@ public class TeamCMD implements CommandExecutor {
         if ((sender instanceof Player)) {
             Player p = (Player) sender;
             if (args.length < 1) {
-                Help(p);
+                p.sendMessage("help command!");
                 return true;
             }
             //help command
             if(args[0].equalsIgnoreCase("help")){
-                Help(p);
+                p.sendMessage("help command!");
                 return true;
             }
+            //info command
             if(args[0].equalsIgnoreCase("info")){
                 String team = Teammanager.getteamofplayer(p);
                 p.sendMessage("Je team:" + team);
                 return true;
+            }
+            if (args.length > 1) {
+                if(args[0].equalsIgnoreCase("create")){
+                    Teammanager.Createteam(args[1]);
+                    return true;
+                }
+                if(args[0].equalsIgnoreCase("delete")){
+                    if(Teammanager.isteam(args[1])) {
+                        Teammanager.Deleteteam(args[1]);
+                        return true;
+                    }
+                }
             }
 
 
@@ -30,7 +43,4 @@ public class TeamCMD implements CommandExecutor {
         return true;
     }
 
-    public void Help(Player player){
-        player.sendMessage("hey!");
-    }
 }

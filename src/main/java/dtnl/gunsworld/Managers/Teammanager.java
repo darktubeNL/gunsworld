@@ -38,6 +38,19 @@ public class Teammanager {
 
     }
 
+    public static void Deleteteam(String team) {
+        YamlFile yml = getteamfile(team);
+        try {
+            if(yml.exists()) {
+                List<String> members = getallmembers(team);
+                for (String member : members) {
+                    Bukkit.getPlayer(member).sendMessage("message.kicked");
+                }
+               yml.deleteFile();
+            }
+        } catch (Exception ignored) {}
+    }
+
     public static List<String> getallmembers(String name){
         YamlFile yml = getteamfile(name);
         try {
@@ -69,6 +82,15 @@ public class Teammanager {
         return new ArrayList();
     }
 
+    public static Boolean isteam(String name) {
+        YamlFile yml = getteamfile(name);
+        try {
+            if (yml.exists()) {
+                return true;
+            }
+        } catch (Exception ignored) {}
+        return false;
+    }
     public static List<String> getleaders(String name){
         YamlFile yml = getteamfile(name);
         try {

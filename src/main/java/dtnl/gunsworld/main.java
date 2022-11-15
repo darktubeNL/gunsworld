@@ -2,8 +2,7 @@ package dtnl.gunsworld;
 
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import dtnl.gunsworld.commands.TeamCMD;
-import dtnl.gunsworld.events.FakeEquipment;
-import dtnl.gunsworld.events.ShootEvent;
+import dtnl.gunsworld.events.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandExecutor;
@@ -24,7 +23,10 @@ public final class main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new ShootEvent(), this);
+        getServer().getPluginManager().registerEvents(new Smoke(), this);
+        getServer().getPluginManager().registerEvents(new molotov(), this);
+        getServer().getPluginManager().registerEvents(new blockbreak(), this);
+        getServer().getPluginManager().registerEvents(new blockburn(), this);
         pl = this;
 
         //equip code voor crossbow
@@ -44,7 +46,7 @@ public final class main extends JavaPlugin implements Listener {
     }
 
     public void registerCommands() {
-        getCommand("team").setExecutor((CommandExecutor) new TeamCMD());
+        //getCommand("team").setExecutor((CommandExecutor) new TeamCMD());
     }
 
     @Override
